@@ -11,6 +11,7 @@
 
 <form name='f1' id="loginForm" action='j_spring_security_check' method='POST' accept-charset="UTF-8">
 <#if contentOnly = "true"><input type="hidden" name="ajax" value="true"/></#if>    
+<input id="_spring_security_remember_me" name="_spring_security_remember_me" type="hidden" value="true"/>
 <table>
     <tr>
         <td><label for="j_username"><@spring.message '_mine.email.address' /></label></td>

@@ -33,6 +33,7 @@
         <h2><@spring.message '_mine.login' /></h2>
 
         <form id="loginForm" name='f1' action='j_spring_security_check' method='POST' accept-charset="UTF-8">
+        <input id="_spring_security_remember_me" name="_spring_security_remember_me" type="hidden" value="true"/>
         <table>
             <tr>
                 <td><label for="j_username"><@spring.message '_mine.email.address' /></label></td>
