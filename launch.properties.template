@@ -21,29 +21,6 @@
 
 ###############################################
 #                                             #
-#       database connection settings          #
-#                                             #
-###############################################
-
-# Database driver used by Hibernate
-
-db.driverClass = org.postgresql.Driver
-
-# url used to connect to the database. Last element is the database name
-
-db.jdbcUrl     = jdbc:postgresql:delving
-
-# database user
-
-db.user        = delving
-
-# database password
-
-db.password    = culture
-
-
-###############################################
-#                                             #
 #       solr connection settings              #
 #                                             #
 ###############################################

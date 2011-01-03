@@ -47,10 +47,6 @@
     <bean id="launchProperties" class="eu.delving.core.util.LaunchProperties">
         <constructor-arg>
             <list>
-                <value>db.driverClass</value>
-                <value>db.jdbcUrl</value>
-                <value>db.user</value>
-                <value>db.password</value>
                 <value>solr.selectUrl</value>
                 <value>solr.updateUrl</value>
                 <value>solr.timeout</value>
