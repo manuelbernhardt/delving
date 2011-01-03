@@ -41,6 +41,7 @@ public interface User {
     Role getRole();
     void setEnabled(boolean enabled);
     boolean isEnabled();
+    Date getRegistrationDate();
     void setFirstName(String firstName);
     String getFirstName();
     void setLastName(String lastName);

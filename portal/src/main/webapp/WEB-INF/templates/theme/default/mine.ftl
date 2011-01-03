@@ -45,13 +45,7 @@
                    <div id="fragment-0">
                       <table width="100%" class="tbl-list" summary="table with user information" id="tbl-user" >
                         <tr>
-                            <td width="150">
-                                <h4><@spring.message '_mine.username' />:</h4>
-                            </td>
-                            <td>${user.userName}</td>
-                        </tr>
-                        <tr>
-                          <td><h4><@spring.message '_mine.email.address'/>:<h/4></td>
+                          <td width="150"><h4><@spring.message '_mine.email.address'/>:<h/4></td>
                           <td>${user.email}</td>
                         </tr>
                         <#if user.firstName??>

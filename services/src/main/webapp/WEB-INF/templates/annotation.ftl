@@ -11,7 +11,7 @@
 
 <p>
 <#if user??>
-    <h2>The user "${user.userName?html}" is currently logged in.</h2>
+    <h2>The user "${user.firstName?html}" is currently logged in.</h2>
 <#else>
     <h2>There is no user logged in. Permission to access will be denied.</h2>
 </#if>

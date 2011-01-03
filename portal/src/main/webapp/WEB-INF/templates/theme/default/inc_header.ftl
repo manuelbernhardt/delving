@@ -127,7 +127,7 @@
 
         <#if user??>
         <li>
-            <@spring.message '_mine.loggedinas' />: <strong>${user.userName?html}</strong> | <a
+            <@spring.message '_mine.loggedinas' />: <strong>${user.firstName?html}</strong> | <a
                 href="/${portalName}/logout.html"><@spring.message '_mine.logout' /></a>
         </li>
         <#if user.savedItems??>

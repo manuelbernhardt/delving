@@ -58,12 +58,8 @@ td {
               <caption><@spring.message '_mine.user.information' /></caption>
             <tr>
                 <td width="150">
-                    <@spring.message '_mine.username' />:
+                    <@spring.message '_mine.email.address'/>:
                 </td>
-                <td>${user.userName}</td>
-            </tr>
-            <tr>
-              <td><@spring.message '_mine.email.address'/>:</td>
               <td>${user.email}</td>
             </tr>
             <#if user.firstName??>

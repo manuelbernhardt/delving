@@ -29,11 +29,10 @@ import com.mongodb.Mongo;
 import eu.delving.core.storage.User;
 import eu.delving.core.storage.UserRepo;
 import eu.delving.domain.Language;
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
 
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -145,6 +144,12 @@ public class UserRepoImpl implements UserRepo {
         @Override
         public boolean isEnabled() {
             return (Boolean) object.get(ENABLED);
+        }
+
+        @Override
+        public Date getRegistrationDate() {
+            ObjectId id = (ObjectId) object.get("_id");
+            return new Date(id.getTime());
         }
 
         @Override
@@ -363,42 +368,8 @@ public class UserRepoImpl implements UserRepo {
     }
 
     private static String hashPassword(String password) {
-        MessageDigest messageDigest = getMessageDigest();
-        byte[] digest;
-        try {
-            digest = messageDigest.digest(password.getBytes("UTF-8"));
-        }
-        catch (UnsupportedEncodingException e) {
-            throw new IllegalStateException("UTF-8 not supported!");
-        }
-        return new String(encode(messageDigest.digest(digest)));
+        return encoder.encodePassword(password, null);
     }
 
-    private static MessageDigest getMessageDigest() throws IllegalArgumentException {
-        try {
-            return MessageDigest.getInstance("SHA-1");
-        }
-        catch (NoSuchAlgorithmException e) {
-            throw new IllegalArgumentException("No such algorithm [SHA-1]");
-        }
-    }
-
-    private static final char[] HEX = {
-        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'
-    };
-
-    private static char[] encode(byte[] bytes) {
-        final int nBytes = bytes.length;
-        char[] result = new char[2*nBytes];
-        int j = 0;
-        for (int i=0; i < nBytes; i++) {
-            // Char for top 4 bits
-            result[j++] = HEX[(0xF0 & bytes[i]) >>> 4 ];
-            // Bottom 4
-            result[j++] = HEX[(0x0F & bytes[i])];
-        }
-        return result;
-    }
-
-
+    private static MessageDigestPasswordEncoder encoder = new MessageDigestPasswordEncoder("SHA-1");
 }

@@ -3,7 +3,6 @@
 First the basics:
         first        : ${user.firstName}
         last         : ${user.lastName}
-        username     : ${user.userName}
         email        : ${user.email}
         newsletter?  : <#if user.newsletter>Newsletter<#else>No Newsletter</#if>
         registration : ${user.registrationDate}

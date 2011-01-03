@@ -33,7 +33,6 @@
                     "
                     firstName="<#if user.firstName??>${user.firstName}</#if>"
                     lastNamme="<#if user.lastName??>${user.lastName}</#if>"
-                    userName="<#if user.userName??>${user.userName}</#if>"
                     registrationDate="<#if user.registrationDate??>${user.registrationDate?string("yyyy-MM-dd HH:mm")}</#if>"
                     lastLoginDate="<#if user.lastLogin??>${user.lastLogin?string("yyyy-MM-dd HH:mm")}</#if>"
                     />
